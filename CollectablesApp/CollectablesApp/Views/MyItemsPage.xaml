@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectablesApp.Views.MyItemsPage"
+             Visual="Material"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="SearchBar1" Placeholder="Zoek hier..." CancelButtonColor="Black" HorizontalTextAlignment="Center"
+                       TextChanged="SearchBar1_OnTextChanged"/>
+            <CollectionView x:Name="CollectionView1" ItemsSource="{Binding Items}" ItemsLayout="VerticalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="DataGrid" Padding="10" Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1.5*"/>
+                                <RowDefinition Height="1.5*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}" Aspect="AspectFit" Grid.RowSpan="2" HeightRequest="150" Grid.Column="0" />
+                            <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1" />
+                            <Label Text="{Binding Quantity}" Grid.Row="0" Grid.Column="2" />
+                            <Label Text="{Binding Description}" Grid.Row="1" Grid.Column="1" />
+                            <Label Text="{Binding Price, Mode=OneWay, StringFormat='€{0}'}" Grid.Row="1" Grid.Column="2" />
+                            <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
+                                     VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

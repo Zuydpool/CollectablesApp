@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectablesApp.Views.Modals.EditItemModal"
+             Visual="Material">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Label TextColor="Black" Text="Edit Item" FontSize="Title" Margin="10"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <StackLayout x:Name="FieldsStackLayout" Margin="24" Padding="24" Spacing="24"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <Entry x:Name="ProductNameEntry" Placeholder="Product Name" Text="{Binding Name}" />
+
+                <Entry x:Name="ProductDescriptionEntry" Placeholder="Product Description" Text="{Binding Description}" />
+
+                <Entry x:Name="ProductQuantityEntry" Placeholder="Product Quantity" Text="{Binding Quantity}" />
+
+                <Entry x:Name="ProductPriceEntry" Placeholder="Product Price" Text="{Binding Price}" />
+
+                <Entry x:Name="ImageUrlEntry" Placeholder="Image Url" Text="{Binding ImageUrl}" />
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Text="Open for Trading" />
+                    <Switch Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" x:Name="ProductOpenForTrade" IsToggled="{Binding OpenForTrading}" Toggled="ProductOpenForTrade_OnToggled" />
+                </Grid>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="00,0,10,10">
+                <Button x:Name="SaveItemButton" Style="{StaticResource SaveButton}" Text="Save"
+                        Clicked="SaveItemButton_OnClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

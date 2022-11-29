@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectablesApp.Views.Modals.DetailsItemModal"
+             Visual="Material">
+    <ContentPage.Content>
+
+
+        <StackLayout>
+            <Label TextColor="Black" Text="Show Details of Item" FontSize="Title" Margin="10"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <StackLayout x:Name="FieldsStackLayout" Margin="24" Padding="24" Spacing="24"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Product Name" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+                    <Label Grid.Column="1" Text="{Binding Name}" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Product Description" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+                    <Label Grid.Column="1" Text="{Binding Description}" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Product Amount" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+                    <Label Grid.Column="1" Text="{Binding Quantity}" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Product Seller" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+                    <Label Grid.Column="1" Text="{Binding Seller}" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                </Grid>
+
+                <Grid x:Name="ProductPriceGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Cost" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+                    <Label Grid.Column="1" Text="{Binding Price, Mode=OneWay, StringFormat='€{0}'}" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Open For Trading" FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Text="{Binding OpenForTrading}" FontAttributes="Bold" HorizontalTextAlignment="End" />
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Image Url" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+                    <Label Grid.Column="1" Text="{Binding ImageUrl}" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                </Grid>
+
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="0,0,10,10">
+                <Button x:Name="BuyItemButton" FontAttributes="Bold" BackgroundColor="SlateBlue" TextColor="White" Text="Buy"
+                        Clicked="BuyItemButton_OnClicked" />
+                <Button x:Name="DetailsItemButton" FontAttributes="Bold" BackgroundColor="#1580D8" TextColor="White" Text="Edit"
+                        Clicked="DetailsItemButton_OnClicked" />
+                <Button x:Name="DeleteItemButton" FontAttributes="Bold" BackgroundColor="Red" TextColor="White" Text="Delete"
+                        Clicked="DeleteItemButton_OnClicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectablesApp.Views.Modals.BuyItemModal"
+             Visual="Material">
+    <ContentPage.Content>
+
+        <Grid RowDefinitions="2*, *">
+            <StackLayout>
+                <Label x:Name="PageTitleLabel" TextColor="Black" Text="Buy Item(s)" FontSize="Title" Margin="10"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+
+                <StackLayout x:Name="FieldsStackLayout" Margin="24" Padding="24" Spacing="24"
+                             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                    <Image Source="{Binding ImageUrl}" HeightRequest="200" WidthRequest="200" />
+
+                </StackLayout>
+                <StackLayout Spacing="20" Grid.Row="1" Margin="30,0">
+                    <Grid>
+                        <Label Text="{Binding Name}" TextColor="#2D2942" FontSize="25" FontAttributes="Bold" />
+                        <Label x:Name="PriceLabel" TextColor="#2D2942" FontSize="20" FontAttributes="Bold" HorizontalOptions="End"/>
+                    </Grid>
+                    <Label Text="{Binding Description}" TextColor="#2D2942" FontSize="14" Opacity="0.5" />
+                    <StackLayout Orientation="Horizontal" Spacing="30">
+                        <Grid>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_OnQuantityDecrease"/>
+                            </Grid.GestureRecognizers>
+                            <Ellipse Aspect="Uniform" WidthRequest="32" HeightRequest="32" Fill="White"/>
+                            <Path Aspect="Uniform" Stroke="#F83A26" StrokeThickness="2" Data="M5 12H19" StrokeLineCap="Round" 
+                          StrokeLineJoin="Round" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                        <Label x:Name="QuantityLabel" Text="1" TextColor="Black" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Grid>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_OnQuantityIncrease"/>
+                            </Grid.GestureRecognizers>
+                            <Ellipse Aspect="Uniform" WidthRequest="32" HeightRequest="32" Fill="White"/>
+                            <Path Aspect="Uniform" Stroke="#F83A26" StrokeThickness="2" Data="M12 5V19" StrokeLineCap="Round" 
+                          StrokeLineJoin="Round" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Path Aspect="Uniform" Stroke="#F83A26" StrokeThickness="2" Data="M5 12H19" StrokeLineCap="Round" 
+                          StrokeLineJoin="Round" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                        <Button WidthRequest="195" HeightRequest="46" CornerRadius="46" HorizontalOptions="End"
+                                BackgroundColor="#F83A26" Text="Confirm" TextColor="White" FontSize="14" Clicked="Button_OnConfirm" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

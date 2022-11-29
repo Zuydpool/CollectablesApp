@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectablesApp.Views.ProfilePage"
+             Visual="Material">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Name:" HorizontalOptions="FillAndExpand" />
+                <Label Text="{Binding Username}" FontSize="Medium" FontAttributes="Bold" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Items on market:" HorizontalOptions="FillAndExpand" />
+                <Label Text="Not yet Implemented" FontSize="Medium" FontAttributes="Bold" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Total Transactions:" HorizontalOptions="FillAndExpand" />
+                <Label Text="Not yet Implemented" FontSize="Medium" FontAttributes="Bold" />
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

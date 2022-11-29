@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="CollectablesApp.Views.Modals.AddItemModal">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Label TextColor="Black" Text="Add Item" FontSize="Title" Margin="10"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <StackLayout Margin="24" Padding="24" Spacing="24"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <Entry x:Name="ProductNameEntry" Placeholder="Product Name">
+                    <Entry.Behaviors>
+                        <xct:TextValidationBehavior
+                            x:Name="ProductNameValidator"
+                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                            MinimumLength="1" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry x:Name="ProductDescriptionEntry" Placeholder="Product Description">
+                    <Entry.Behaviors>
+                        <xct:TextValidationBehavior
+                            x:Name="ProductDescriptionValidator"
+                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                            MinimumLength="1"
+                            MaximumLength="5000" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry x:Name="ProductQuantityEntry" Placeholder="Product Quantity" Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <xct:NumericValidationBehavior
+                            x:Name="ProductQuantityValidator"
+                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                            MinimumValue="1"
+                            MaximumDecimalPlaces="0"/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry x:Name="ProductPriceEntry" Placeholder="Product Price" Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <xct:NumericValidationBehavior
+                            x:Name="ProductPriceValidator"
+                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                            MinimumValue="0.01"
+                            MaximumDecimalPlaces="2"/>
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Entry x:Name="ImageUrlEntry" Placeholder="Image Url">
+                    <Entry.Behaviors>
+                        <xct:UriValidationBehavior
+                            x:Name="ProductImageUrlValidator"
+                            InvalidStyle="{StaticResource InvalidEntryStyle}"
+                            UriKind="Absolute" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Text="Open for Trading" />
+                    <Switch Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" x:Name="ProductOpenForTrade" IsToggled="False" Toggled="ProductOpenForTrade_OnToggled" />
+                </Grid>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="00,0,10,10">
+                <Button x:Name="SaveItemButton" FontAttributes="Bold" BackgroundColor="#D84315" TextColor="White" Text="Save"
+                        Clicked="SaveItemButton_OnClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

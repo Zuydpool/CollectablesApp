@@ -1,0 +1,4 @@
+- Items in my items clicable maken -> Doorsturen naar Item View
+- Back button toevoegen. -> In Item View kan je bijvoorbeeld niet terug tenzij je fysieke terug knop gebruikt
+- SQLite database support toevoegen.
+- User Management toevoegen (Lijst van users, wachtwoord veranderen van user, etc)
